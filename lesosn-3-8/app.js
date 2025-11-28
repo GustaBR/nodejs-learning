@@ -1,5 +1,5 @@
 const express = require("express");
-
+const morgan = require("morgan");
 // Express app
 const app = express();
 
@@ -12,6 +12,10 @@ PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+// Middleware & static files
+app.use(express.static("public"));
+app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
     const blogs = [

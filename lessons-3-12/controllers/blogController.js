@@ -23,7 +23,7 @@ const blogDetails = (req, res) => {
   const id = req.params.id;
   Blog.findById(id)
     .then((result) => res.render("blogs/details", { blog: result, title: "Blog details"}))
-    .catch((err) => console.log(err));
+    .catch(() => res.render("404", { title: "404" }));
 }
 
 const blogDelete = (req, res) => {
